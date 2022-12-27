@@ -1,0 +1,14 @@
+- name: "Copy files" 
+  hosts: all 
+  become: yes 
+  vars: 
+    source: /tmp/one.txt 
+    dest: /tmp/one.txt 
+  tasks: 
+    - name: "Copy file"
+      copy:
+        src: "{{source}}"
+        dest: "{{dest}}"
+        owner: hodi
+        group: root
+        mode: 777

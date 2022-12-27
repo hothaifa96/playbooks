@@ -1,0 +1,8 @@
+- hosts: hodi
+  tasks:
+    - name: show ip
+      shell: ip a 
+      register: my_ip
+    - name: pringing the ip
+      debug:
+        msg: ' this is my ip so go and do somthing with it {{my_ip}}'`
