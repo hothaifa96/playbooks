@@ -1,0 +1,7 @@
+---
+-name: copy files with hodi
+  hosts: all
+  tasks:
+    copy:
+      src: /test.txt
+      dest: /tmp/test.txt
