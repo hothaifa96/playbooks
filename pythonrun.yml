@@ -1,0 +1,19 @@
+- name: "script runner" 
+  hosts: all 
+  become: yes 
+  vars: 
+    source: /tmp/gitcloning.py
+    dest: /tmp/gitcloning.py
+  tasks: 
+    - name: "Copy file"
+      copy:
+        src: "{{source}}"
+        dest: "{{dest}}"
+        owner: hodi
+        group: root
+        mode: 777
+    - name: run python script
+      shell: python3 /tmp/gitcloning.py
+      register: output
+      debug:
+        msg: "{{ output }}"
